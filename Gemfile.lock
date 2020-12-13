@@ -1,3 +1,9 @@
+PATH
+  remote: engines/clock_operation
+  specs:
+    clock_operation (0.1.0)
+      rails (~> 6.0.3, >= 6.0.3.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -145,6 +151,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
+  clock_operation!
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)

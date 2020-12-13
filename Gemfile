@@ -38,3 +38,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'clock_operation', path: 'engines/clock_operation'
+gem 'identity', path: 'engines/identity'

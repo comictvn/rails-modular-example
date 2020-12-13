@@ -1,17 +1,17 @@
 $:.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "clock_operation/version"
+require "identity/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "clock_operation"
-  spec.version     = ClockOperation::VERSION
+  spec.name        = "identity"
+  spec.version     = Identity::VERSION
   spec.authors     = ["Kevin"]
   spec.email       = ["comictvn@gmail.com"]
   spec.homepage    = "https://github.com/comictvn"
-  spec.summary     = "ClockOperation."
-  spec.description = "Description of ClockOperation."
+  spec.summary     = "Summary of Identity."
+  spec.description = "Description of Identity."
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
