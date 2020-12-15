@@ -1,0 +1,4 @@
+en:
+  identity:
+    session:
+      invalid_credentials: Login information is invalid
