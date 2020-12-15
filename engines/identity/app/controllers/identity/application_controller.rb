@@ -1,5 +1,7 @@
 module Identity
-  class ApplicationController < ActionController::Base
-    protect_from_forgery with: :exception
+  class ApplicationController < ActionController::API
+    include ResponseSerializer
+    include ExceptionHandler
+    include AuthProtection
   end
 end
