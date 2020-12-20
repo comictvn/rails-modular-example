@@ -1,0 +1,5 @@
+en:
+  clock_operation:
+    sleeping_record:
+      inprogess_record: The record still ingporess
+      without_record_beding_time: There isn't beding record

@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_20_084238) do
+ActiveRecord::Schema.define(version: 2020_12_20_145233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clock_operation_sleeping_records", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "clock_in"
+    t.datetime "clock_out"
+    t.integer "count_time_in_bed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_clock_operation_sleeping_records_on_user_id"
+  end
 
   create_table "user_follows", force: :cascade do |t|
     t.bigint "requester_id"

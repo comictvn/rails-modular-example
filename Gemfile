@@ -41,6 +41,7 @@ gem 'jwt'
 gem 'fast_jsonapi'
 gem 'bcrypt', '~> 3.1.7'
 gem 'email_validator'
+gem 'will_paginate'
 
 gem 'clock_operation', path: 'engines/clock_operation'
 gem 'identity', path: 'engines/identity'
