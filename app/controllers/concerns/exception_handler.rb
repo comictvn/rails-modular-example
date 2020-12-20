@@ -4,11 +4,13 @@ module ExceptionHandler
   # Define custom error subclasses - rescue catches `StandardErrors`
   class AuthenticationError < StandardError; end
   class InvalidToken < StandardError; end
+  class InvalidToken < StandardError; end
   
   included do
     # Define custom handlers
     rescue_from AuthenticationError, with: :unauthorized_request
     rescue_from InvalidToken, with: :unauthorized_request
+    rescue_from ActiveRecord::RecordInvalid, with: :render_422
   end
 
   private

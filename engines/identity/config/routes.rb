@@ -3,5 +3,6 @@ Identity::Engine.routes.draw do
     resources :auth, only: [:create]
     resources :logout, only: [:create]
     resources :me, only: [:index]
+    resources :followers, only: [:create, :destroy]
   end
 end
