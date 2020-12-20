@@ -11,6 +11,7 @@ module ExceptionHandler
     rescue_from AuthenticationError, with: :unauthorized_request
     rescue_from InvalidToken, with: :unauthorized_request
     rescue_from ActiveRecord::RecordInvalid, with: :render_422
+    rescue_from StandardError, with: :render_422
   end
 
   private
