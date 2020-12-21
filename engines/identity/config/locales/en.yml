@@ -2,6 +2,6 @@ en:
   identity:
     session:
       invalid_credentials: Login information is invalid
-  followers:
-    already_taken: The addressee have already been taken
-    not_exists: The addressee isn't exists
+    followers:
+      already_taken: The addressee have already been taken
+      not_exists: The addressee isn't exists

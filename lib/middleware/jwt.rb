@@ -27,7 +27,8 @@ module Middleware
     end
 
     def set_env_variables(token, env)
-      jwt = ::JwtService.decode(token)
+      jwt = ::Identity::JwtService.decode(token)
+      return unless jwt.present?
       env['jwt.sleeping_user_id'] = jwt['user_id']
     end
   end

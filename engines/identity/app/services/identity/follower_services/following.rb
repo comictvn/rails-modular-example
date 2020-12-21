@@ -10,7 +10,7 @@ module Identity
       def call
         raise(
           FollowerServices::FollowingInvalid, I18n.t('identity.followers.already_taken')
-        ) if UserFollow.where(requester_id: @current_user.id, addressee_id: @addressee_id).exists?
+        ) if Identity::UserFollow.where(requester_id: @current_user.id, addressee_id: @addressee_id).exists?
         @current_user.requesters.create!(addressee_id: @addressee_id)
       end
     end
