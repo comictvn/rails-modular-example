@@ -1,24 +1,28 @@
-# README
+# Tracking APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Tech
 
-Things you may want to cover:
+Dillinger uses a number of open source projects to work properly:
 
-* Ruby version
+* [Ruby On Rail 6] - BackEnd Server
+* [Rail Engine] - First step will be ready to move microservice
+* [Postgres] - Database
 
-* System dependencies
+### Installation
 
-* Configuration
+## Ruby On Rails
 
-* Database creation
+```sh
+$ bundle install
+$ bundle exec rake db:setup
+$ bundle exec rake db:seed
+$ rails s
+```
 
-* Database initialization
+### Need improvement
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Change authentication method use shortlive & refresh token instead of longlive token
+* Isolating Rails Engines with access data modeling for prevent circular dependency
+* Manage dependency between of engines
+* Communicate interface between of engines (Evenbus/Grpc protocol)
+* Unit testing
