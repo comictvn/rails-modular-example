@@ -1,6 +1,6 @@
 module Identity
   module SessionServices
-    class SessionRepositoryInvalid < ExceptionHandler::AuthenticationError; end
+    class SessionRepositoryInvalid < StandardError; end
     class SessionRepository
       def initialize(email, password)
         @email = email
@@ -11,13 +11,13 @@ module Identity
         return raise(
           SessionRepositoryInvalid, I18n.t('identity.session.invalid_credentials')
         ) if construct_session.nil?
-        ::JwtService.encode(payload)
+        Identity::JwtService.encode(payload)
       end
 
       private
       def construct_session
         @construct_session ||= begin
-          user = ::User.find_by(email: @email)
+          user = Identity::User.find_by(email: @email)
           user if user && user.authenticate(@password)
         end
       end

@@ -35,6 +35,16 @@ group :development do
   gem 'listen', '~> 3.2'
 end
 
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'simplecov'
+  gem 'shoulda-matchers'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  gem 'database_cleaner'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jwt'
