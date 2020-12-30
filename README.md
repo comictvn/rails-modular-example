@@ -18,6 +18,13 @@ $ bundle exec rake db:setup
 $ bundle exec rake db:seed
 $ rails s
 ```
+## Run UNIT test for domain (Identity/Clock Operation)
+```sh
+$ cd engines/identity/
+$ bundle exec rspec
+$ cd engines/clock_operation
+$ bundle exec rspec
+```
 
 ### Need improvement
 
