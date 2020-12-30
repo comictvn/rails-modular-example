@@ -29,7 +29,7 @@ module ClockOperation
       end
 
       def calculate_beding_time
-        (@waking_up_time - tracking_record.clock_in).to_f
+        (@waking_up_time - tracking_record.clock_in).to_i
       end
 
       def tracking_record_inprogess?

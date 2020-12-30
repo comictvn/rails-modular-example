@@ -10,7 +10,10 @@ PATH
   remote: engines/clock_operation
   specs:
     clock_operation (0.1.0)
+      pg (>= 0.18, < 2.0)
       rails (~> 6.0.3, >= 6.0.3.4)
+      rspec-rails
+      shared
 
 PATH
   remote: engines/identity
@@ -25,6 +28,12 @@ PATH
       rails (~> 6.0.3, >= 6.0.3.4)
       rspec-rails
       sqlite3
+
+PATH
+  remote: engines/shared
+  specs:
+    shared (0.1.0)
+      rails (~> 6.0.3, >= 6.0.3.4)
 
 GEM
   remote: https://rubygems.org/
@@ -241,6 +250,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.4)
   rspec
   rspec-rails
+  shared!
   shoulda-matchers
   simplecov
   tzinfo-data
