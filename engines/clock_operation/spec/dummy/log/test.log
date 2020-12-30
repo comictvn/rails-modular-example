@@ -14386,3 +14386,309 @@ Failed to validate JWT: [JWT::DecodeError] No verification key available
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "clock_operation_sleeping_records" DISABLE TRIGGER ALL;ALTER TABLE "user_follows" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.4ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+             tablename <> 'schema_migrations'  AND tablename <> 'ar_internal_metadata'  AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.3ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'sleep_test'[0m
+  [1m[35m (14.9ms)[0m  [1m[35mTRUNCATE TABLE "public"."users", "public"."clock_operation_sleeping_records", "public"."user_follows" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "clock_operation_sleeping_records" ENABLE TRIGGER ALL;ALTER TABLE "user_follows" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "kevin@gmail.com"], ["name", "Harvey Hayes LLD"], ["created_at", "2020-12-30 10:24:31.261922"], ["updated_at", "2020-12-30 10:24:31.261922"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (2.0ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["clock_in", "2020-12-30 10:24:31.251849"], ["clock_out", "2020-12-30 11:24:31.251866"], ["created_at", "2020-12-30 10:24:31.271170"], ["updated_at", "2020-12-30 10:24:31.271170"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["clock_in", "2020-12-30 10:24:31.251849"], ["clock_out", "2020-12-30 11:24:31.251866"], ["created_at", "2020-12-30 10:24:31.275657"], ["updated_at", "2020-12-30 10:24:31.275657"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["clock_in", "2020-12-30 10:24:31.251849"], ["clock_out", "2020-12-30 11:24:31.251866"], ["created_at", "2020-12-30 10:24:31.277826"], ["updated_at", "2020-12-30 10:24:31.277826"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["clock_in", "2020-12-30 10:24:31.251849"], ["clock_out", "2020-12-30 11:24:31.251866"], ["created_at", "2020-12-30 10:24:31.280316"], ["updated_at", "2020-12-30 10:24:31.280316"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["clock_in", "2020-12-30 10:24:31.251849"], ["clock_out", "2020-12-30 11:24:31.251866"], ["created_at", "2020-12-30 10:24:31.282612"], ["updated_at", "2020-12-30 10:24:31.282612"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_in IS NOT NULL) AND (clock_out IS NOT NULL)[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "kevin@gmail.com"], ["name", "Fernando Ortiz III"], ["created_at", "2020-12-30 10:24:31.290044"], ["updated_at", "2020-12-30 10:24:31.290044"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["clock_in", "2020-12-30 10:24:31.289276"], ["clock_out", "2020-12-30 11:24:31.289288"], ["created_at", "2020-12-30 10:24:31.292997"], ["updated_at", "2020-12-30 10:24:31.292997"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["clock_in", "2020-12-30 10:24:31.289276"], ["clock_out", "2020-12-30 11:24:31.289288"], ["created_at", "2020-12-30 10:24:31.296031"], ["updated_at", "2020-12-30 10:24:31.296031"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["clock_in", "2020-12-30 10:24:31.289276"], ["clock_out", "2020-12-30 11:24:31.289288"], ["created_at", "2020-12-30 10:24:31.298286"], ["updated_at", "2020-12-30 10:24:31.298286"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["clock_in", "2020-12-30 10:24:31.289276"], ["clock_out", "2020-12-30 11:24:31.289288"], ["created_at", "2020-12-30 10:24:31.301359"], ["updated_at", "2020-12-30 10:24:31.301359"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["clock_in", "2020-12-30 10:24:31.289276"], ["clock_out", "2020-12-30 11:24:31.289288"], ["created_at", "2020-12-30 10:24:31.303830"], ["updated_at", "2020-12-30 10:24:31.303830"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_in IS NOT NULL) AND (clock_out IS NOT NULL)[0m  [["user_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "kevin@gmail.com"], ["name", "Cristina Hackett"], ["created_at", "2020-12-30 10:24:31.309525"], ["updated_at", "2020-12-30 10:24:31.309525"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["clock_in", "2020-12-30 10:24:31.308787"], ["clock_out", "2020-12-30 11:24:31.308798"], ["created_at", "2020-12-30 10:24:31.312198"], ["updated_at", "2020-12-30 10:24:31.312198"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["clock_in", "2020-12-30 10:24:31.308787"], ["clock_out", "2020-12-30 11:24:31.308798"], ["created_at", "2020-12-30 10:24:31.314208"], ["updated_at", "2020-12-30 10:24:31.314208"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["clock_in", "2020-12-30 10:24:31.308787"], ["clock_out", "2020-12-30 11:24:31.308798"], ["created_at", "2020-12-30 10:24:31.316545"], ["updated_at", "2020-12-30 10:24:31.316545"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["clock_in", "2020-12-30 10:24:31.308787"], ["clock_out", "2020-12-30 11:24:31.308798"], ["created_at", "2020-12-30 10:24:31.319113"], ["updated_at", "2020-12-30 10:24:31.319113"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["clock_in", "2020-12-30 10:24:31.308787"], ["clock_out", "2020-12-30 11:24:31.308798"], ["created_at", "2020-12-30 10:24:31.321255"], ["updated_at", "2020-12-30 10:24:31.321255"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["clock_in", "2020-12-30 10:24:31.322150"], ["created_at", "2020-12-30 10:24:31.323220"], ["updated_at", "2020-12-30 10:24:31.323220"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["clock_in", "2020-12-30 10:24:31.322150"], ["created_at", "2020-12-30 10:24:31.325405"], ["updated_at", "2020-12-30 10:24:31.325405"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["clock_in", "2020-12-30 10:24:31.322150"], ["created_at", "2020-12-30 10:24:31.328364"], ["updated_at", "2020-12-30 10:24:31.328364"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["clock_in", "2020-12-30 10:24:31.322150"], ["created_at", "2020-12-30 10:24:31.330363"], ["updated_at", "2020-12-30 10:24:31.330363"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["clock_in", "2020-12-30 10:24:31.322150"], ["created_at", "2020-12-30 10:24:31.332597"], ["updated_at", "2020-12-30 10:24:31.332597"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_in IS NOT NULL) AND (clock_out IS NOT NULL)[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "kevin@gmail.com"], ["name", "Melissa Price"], ["created_at", "2020-12-30 10:24:31.339643"], ["updated_at", "2020-12-30 10:24:31.339643"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 4], ["clock_in", "2020-12-30 10:24:31.338842"], ["clock_out", "2020-12-30 11:24:31.338854"], ["created_at", "2020-12-30 10:24:31.342321"], ["updated_at", "2020-12-30 10:24:31.342321"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 4], ["clock_in", "2020-12-30 10:24:31.338842"], ["clock_out", "2020-12-30 11:24:31.338854"], ["created_at", "2020-12-30 10:24:31.345259"], ["updated_at", "2020-12-30 10:24:31.345259"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 4], ["clock_in", "2020-12-30 10:24:31.338842"], ["clock_out", "2020-12-30 11:24:31.338854"], ["created_at", "2020-12-30 10:24:31.347320"], ["updated_at", "2020-12-30 10:24:31.347320"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 4], ["clock_in", "2020-12-30 10:24:31.338842"], ["clock_out", "2020-12-30 11:24:31.338854"], ["created_at", "2020-12-30 10:24:31.349349"], ["updated_at", "2020-12-30 10:24:31.349349"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 4], ["clock_in", "2020-12-30 10:24:31.338842"], ["clock_out", "2020-12-30 11:24:31.338854"], ["created_at", "2020-12-30 10:24:31.351872"], ["updated_at", "2020-12-30 10:24:31.351872"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_in IS NOT NULL) AND (clock_out IS NOT NULL)[0m  [["user_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "kevin@gmail.com"], ["name", "Flo Rice"], ["created_at", "2020-12-30 10:24:31.357877"], ["updated_at", "2020-12-30 10:24:31.357877"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 5], ["clock_in", "2020-12-30 10:24:31.357066"], ["clock_out", "2020-12-30 11:24:31.357077"], ["created_at", "2020-12-30 10:24:31.361469"], ["updated_at", "2020-12-30 10:24:31.361469"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 5], ["clock_in", "2020-12-30 10:24:31.357066"], ["clock_out", "2020-12-30 11:24:31.357077"], ["created_at", "2020-12-30 10:24:31.364015"], ["updated_at", "2020-12-30 10:24:31.364015"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.7ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 5], ["clock_in", "2020-12-30 10:24:31.357066"], ["clock_out", "2020-12-30 11:24:31.357077"], ["created_at", "2020-12-30 10:24:31.366725"], ["updated_at", "2020-12-30 10:24:31.366725"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 5], ["clock_in", "2020-12-30 10:24:31.357066"], ["clock_out", "2020-12-30 11:24:31.357077"], ["created_at", "2020-12-30 10:24:31.370000"], ["updated_at", "2020-12-30 10:24:31.370000"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "clock_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 5], ["clock_in", "2020-12-30 10:24:31.357066"], ["clock_out", "2020-12-30 11:24:31.357077"], ["created_at", "2020-12-30 10:24:31.372328"], ["updated_at", "2020-12-30 10:24:31.372328"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 5], ["clock_in", "2020-12-30 10:24:31.373401"], ["created_at", "2020-12-30 10:24:31.374579"], ["updated_at", "2020-12-30 10:24:31.374579"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 5], ["clock_in", "2020-12-30 10:24:31.373401"], ["created_at", "2020-12-30 10:24:31.376795"], ["updated_at", "2020-12-30 10:24:31.376795"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 5], ["clock_in", "2020-12-30 10:24:31.373401"], ["created_at", "2020-12-30 10:24:31.378985"], ["updated_at", "2020-12-30 10:24:31.378985"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 5], ["clock_in", "2020-12-30 10:24:31.373401"], ["created_at", "2020-12-30 10:24:31.380996"], ["updated_at", "2020-12-30 10:24:31.380996"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 5], ["clock_in", "2020-12-30 10:24:31.373401"], ["created_at", "2020-12-30 10:24:31.383348"], ["updated_at", "2020-12-30 10:24:31.383348"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_in IS NOT NULL) AND (clock_out IS NOT NULL)[0m  [["user_id", 5]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "teacher@iwa.com"], ["name", "Lurline Nader Ret."], ["created_at", "2020-12-30 10:24:31.389004"], ["updated_at", "2020-12-30 10:24:31.389004"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::SleepingRecord Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_out IS NULL) LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 6], ["clock_in", "2020-12-30 11:24:31.390390"], ["created_at", "2020-12-30 10:24:31.392640"], ["updated_at", "2020-12-30 10:24:31.392640"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "teacher@iwa.com"], ["name", "Susann Boyle"], ["created_at", "2020-12-30 10:24:31.401848"], ["updated_at", "2020-12-30 10:24:31.401848"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::SleepingRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_out IS NULL) LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 7], ["clock_in", "2020-12-30 11:24:31.403597"], ["created_at", "2020-12-30 10:24:31.405880"], ["updated_at", "2020-12-30 10:24:31.405880"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_out IS NULL)[0m  [["user_id", 7]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "teacher@iwa.com"], ["name", "Domenica Hayes JD"], ["created_at", "2020-12-30 10:24:31.411686"], ["updated_at", "2020-12-30 10:24:31.411686"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::SleepingRecord Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_out IS NULL) LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 8], ["clock_in", "2020-12-30 11:24:31.413257"], ["created_at", "2020-12-30 10:24:31.415215"], ["updated_at", "2020-12-30 10:24:31.415215"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::SleepingRecord Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_out IS NULL) LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "teacher@iwa.com"], ["name", "Shayne Hagenes"], ["created_at", "2020-12-30 10:24:31.424281"], ["updated_at", "2020-12-30 10:24:31.424281"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 9], ["clock_in", "2020-12-30 10:24:31.425895"], ["created_at", "2020-12-30 10:24:31.427517"], ["updated_at", "2020-12-30 10:24:31.427517"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::SleepingRecord Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_out IS NULL) LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Load (0.2ms)[0m  [1m[34mSELECT "clock_operation_sleeping_records".* FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND "clock_operation_sleeping_records"."id" = $2 LIMIT $3[0m  [["user_id", 9], ["id", 39], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Update (0.4ms)[0m  [1m[33mUPDATE "clock_operation_sleeping_records" SET "clock_out" = $1, "count_time_in_bed" = $2, "updated_at" = $3 WHERE "clock_operation_sleeping_records"."id" = $4[0m  [["clock_out", "2020-12-30 11:24:31.429139"], ["count_time_in_bed", 3600], ["updated_at", "2020-12-30 10:24:31.432338"], ["id", 39]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "teacher@iwa.com"], ["name", "Rev. Fermin Hermann"], ["created_at", "2020-12-30 10:24:31.438041"], ["updated_at", "2020-12-30 10:24:31.438041"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 10], ["clock_in", "2020-12-30 10:24:31.440020"], ["created_at", "2020-12-30 10:24:31.441475"], ["updated_at", "2020-12-30 10:24:31.441475"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::SleepingRecord Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_out IS NULL) LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Load (0.3ms)[0m  [1m[34mSELECT "clock_operation_sleeping_records".* FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND "clock_operation_sleeping_records"."id" = $2 LIMIT $3[0m  [["user_id", 10], ["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Update (0.3ms)[0m  [1m[33mUPDATE "clock_operation_sleeping_records" SET "clock_out" = $1, "count_time_in_bed" = $2, "updated_at" = $3 WHERE "clock_operation_sleeping_records"."id" = $4[0m  [["clock_out", "2020-12-30 11:24:31.442870"], ["count_time_in_bed", 3600], ["updated_at", "2020-12-30 10:24:31.446218"], ["id", 40]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "teacher@iwa.com"], ["name", "Zada Baumbach"], ["created_at", "2020-12-30 10:24:31.452154"], ["updated_at", "2020-12-30 10:24:31.452154"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 11], ["clock_in", "2020-12-30 10:24:31.454195"], ["created_at", "2020-12-30 10:24:31.455650"], ["updated_at", "2020-12-30 10:24:31.455650"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::SleepingRecord Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_out IS NULL) LIMIT $2[0m  [["user_id", 11], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Load (0.2ms)[0m  [1m[34mSELECT "clock_operation_sleeping_records".* FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND "clock_operation_sleeping_records"."id" = $2 LIMIT $3[0m  [["user_id", 11], ["id", 41], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Update (0.4ms)[0m  [1m[33mUPDATE "clock_operation_sleeping_records" SET "clock_out" = $1, "count_time_in_bed" = $2, "updated_at" = $3 WHERE "clock_operation_sleeping_records"."id" = $4[0m  [["clock_out", "2020-12-30 11:24:31.456733"], ["count_time_in_bed", 3600], ["updated_at", "2020-12-30 10:24:31.459487"], ["id", 41]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::SleepingRecord Load (0.3ms)[0m  [1m[34mSELECT "clock_operation_sleeping_records".* FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "teacher@iwa.com"], ["name", "Mrs. Neda Walter"], ["created_at", "2020-12-30 10:24:31.466491"], ["updated_at", "2020-12-30 10:24:31.466491"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mClockOperation::SleepingRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "clock_operation_sleeping_records" ("user_id", "clock_in", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 12], ["clock_in", "2020-12-30 10:24:31.465692"], ["created_at", "2020-12-30 10:24:31.469813"], ["updated_at", "2020-12-30 10:24:31.469813"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mClockOperation::SleepingRecord Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "clock_operation_sleeping_records" WHERE "clock_operation_sleeping_records"."user_id" = $1 AND (clock_out IS NULL) LIMIT $2[0m  [["user_id", 9999], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
