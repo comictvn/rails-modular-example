@@ -13,7 +13,7 @@ module ClockOperation
       def relation
         ClockOperation::SleepingRecord.where(
           user_id: @user_id
-        ).order(updated_at: :desc)
+        ).finished.order(updated_at: :desc)
       end
     end
   end

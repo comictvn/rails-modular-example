@@ -11,7 +11,7 @@ module Identity
         raise(
           FollowerServices::UnfollowingInvalid, I18n.t('identity.followers.not_exists')
         ) unless UserFollow.where(requester_id: @current_user.id, addressee_id: @addressee_id).exists?
-        @current_user.requesters.where(addressee_id: @addressee_id).delete_all
+        Identity::UserFollow.where(requester_id: @current_user.id, addressee_id: @addressee_id).delete_all
       end
     end
   end

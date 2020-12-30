@@ -1,7 +1,7 @@
 module Identity
   class Engine < ::Rails::Engine
     isolate_namespace Identity
-    config.rspec_paths << self.root
+    
     initializer "indentity.middleware" do |app|
       app.config.middleware.use ActionDispatch::Cookies
       app.config.middleware.use ActionDispatch::Session::CookieStore  

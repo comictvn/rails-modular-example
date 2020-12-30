@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data" : {
+      "type" : "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "attributes"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "attributes": { 
+            "type": "object",
+            "required": [
+              "id",
+              "clock_in",
+              "clock_out",
+              "count_time_in_bed"
+            ],
+            "properties": {
+              "id": { "type": "integer" },
+              "clock_in": { "type": "date-time" },
+              "clock_in": { "type": "date-time" },
+              "count_time_in_bed": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "required": [
+        "pager"
+      ],
+      "properties": {
+        "pager": {
+          "type": {"type": "object"},
+          "required": [
+            "total",
+            "current"
+          ],
+          "properties": {
+            "total": {"type": "integer"},
+            "current": {"type": "integer"}
+          }
+        }
+      }
+    }
+  }
+}

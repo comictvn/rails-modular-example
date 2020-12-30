@@ -1,7 +1,7 @@
 module ClockOperation
   class ApplicationController < ActionController::API
-    include ResponseSerializer
-    include ExceptionHandler
-    include AuthProtection
+    include ::Shared::ResponseSerializer
+    include ::Shared::ExceptionHandler
+    include ::Shared::AuthProtection
   end
 end

@@ -1,0 +1,332 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/admin/Works/sleeping/engines/clock_operation/lib/clock_operation.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/lib/clock_operation/engine.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/models/clock_operation/sleeping_record.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/models/clock_operation/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/models/clock_operation/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/controllers/clock_operation/v1/friend_sleepings_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/controllers/clock_operation/v1/base_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/controllers/clock_operation/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/queries/clock_operation/sleeping_record_queries/friend_records.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/queries/clock_operation/sleeping_record_queries/owning_records.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/services/clock_operation/sleeping_record_services/recording_beding_time.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/services/clock_operation/sleeping_record_services/waking_up_time.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/serializer/clock_operation/v1/sleeping_record_serializer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/mailers/clock_operation/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/jobs/clock_operation/application_job.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/app/controllers/clock_operation/v1/sleeping_records_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/admin/Works/sleeping/engines/clock_operation/lib/clock_operation/version.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1609322624
+  }
+}

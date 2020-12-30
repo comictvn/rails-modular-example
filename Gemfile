@@ -55,3 +55,4 @@ gem 'will_paginate'
 
 gem 'clock_operation', path: 'engines/clock_operation'
 gem 'identity', path: 'engines/identity'
+gem 'shared', path: 'engines/shared'
